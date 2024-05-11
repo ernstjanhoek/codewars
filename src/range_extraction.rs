@@ -30,11 +30,7 @@ mod solution {
     }
 
     fn is_consecutive(a: &i32, b:&i32) -> bool {
-        if b - a == 1 {
-            true 
-        } else {
-            false
-        }
+        b - a == 1
     }
 
     fn update_buf(old_buf: [Option<i32>; 2], num: i32, peek: i32) -> [Option<i32>; 2] {
