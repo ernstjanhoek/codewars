@@ -10,3 +10,4 @@ pub mod sq_in_rect;
 pub mod tree_by_levels;
 pub mod complementary_dna;
 pub mod detect_pangram;
+pub mod teknonymy;

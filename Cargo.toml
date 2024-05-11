@@ -5,3 +5,5 @@ edition = "2021"
 
 [lib]
 path = "src/lib.rs"
+[dependencies]
+chrono = "0.4.38"

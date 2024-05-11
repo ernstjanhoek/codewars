@@ -1,3 +1,5 @@
+//NIET AF!
+
 #[derive(Copy, Clone, Debug, PartialEq)]
 enum Dir {
     N,
@@ -8,6 +10,12 @@ enum Dir {
 use Dir::*;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
+enum Value {
+    Blocked,
+    Open,
+}
+
+#[derive(Copy, Clone, Debug, PartialEq)]
 struct Point {
     value: Value,
     x: usize,
@@ -16,19 +24,15 @@ struct Point {
     checked: bool, 
 }
 
-#[derive(Copy, Clone, Debug, PartialEq)]
-enum Value {
-    Blocked,
-    Open,
-}
 
 impl Point {
-    fn new(value: char, x: usize, y: usize) -> Self {
+    fn new(value: Value, x: usize, y: usize) -> Self {
         Self {
             value,
             x,
             y,
             side: None,
+            checked: false
         }
     }
 
