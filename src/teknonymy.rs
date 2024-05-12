@@ -11,7 +11,13 @@ pub struct Person {
 }
 
 pub fn teknonymize(family_tree: &mut Person) {
+    define_teknonym(family_tree);
+    for child in &mut family_tree.children {
+        teknonymize(child);
+    }
+}
 
+fn define_teknonym(family_tree: &mut Person) {
     let mut flat_family: Vec<(&Person, u32)> = Vec::new();
     let mut people_buffer: VecDeque<(&Person, u32)> = VecDeque::new();
     people_buffer.push_front((&family_tree, 0));
@@ -36,7 +42,7 @@ pub fn teknonymize(family_tree: &mut Person) {
     }
 }
 
-fn select_child(flat_family_tree:Vec<(&Person, u32)>) -> (String, u32) {
+fn select_child(flat_family_tree: Vec<(&Person, u32)>) -> (String, u32) {
     let mut out = ("of".to_string(), 0);
     let mut sorted_tree = flat_family_tree.clone();
     sorted_tree.sort_by_key(|&(_, layer)| std::cmp::Reverse(layer));
@@ -68,7 +74,7 @@ fn add_generational_steps(steps: u32) -> String {
     }
     if steps > 2 {
         for _ in 2..steps {
-           out = "great-".to_string() + &*out;
+            out = "great-".to_string() + &*out;
         }
     }
     out
