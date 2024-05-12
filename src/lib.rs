@@ -13,3 +13,4 @@ pub mod detect_pangram;
 pub mod teknonymy;
 pub mod greed;
 pub mod readable_time;
+pub mod move_zeros;
