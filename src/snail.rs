@@ -25,10 +25,8 @@ fn snail(matrix: &[Vec<i32>]) -> Vec<i32> {
     let mut n = matrix.len();
     while n > 0 && !matrix[0].is_empty() {
         let mut values = extract_values(n, dir, matrix);
-        println!("{:?}", values);
         out_vec.append(&mut values);
         n = decrease_n(count, n);
-        println!("{:?}", n);
         dir = dir.change();
         count += 1;
     }
@@ -59,7 +57,6 @@ fn extract_values(n: usize, dir: Dir, slice: &[Vec<i32>]) -> Vec<i32> {
         S => {
             let y = ((len_index - n_index) / 2) + 1;
             let x = len_index - (len_index - n_index) / 2;
-            println!("n: {}, dir: {:?}, x: {}, y: {}",n, dir, x ,y);
             while count < n {
                 out_vec.push(slice[y+count][x]);
                 count += 1;
@@ -68,7 +65,6 @@ fn extract_values(n: usize, dir: Dir, slice: &[Vec<i32>]) -> Vec<i32> {
         W => {
             let y = len_index - ((len_index - n_index) / 2);
             let x = len_index - ((len_index - n_index) / 2) - 1;
-            println!("n: {}, dir: {:?}, x: {}, y: {}",n, dir, x ,y);
             while count < n {
                 out_vec.push(slice[y][x-count]);
                 count += 1;
@@ -78,7 +74,6 @@ fn extract_values(n: usize, dir: Dir, slice: &[Vec<i32>]) -> Vec<i32> {
         N => {
             let y = len_index - (len_index - n_index) / 2;
             let x = (len_index - n_index - 1) / 2;
-            println!("n: {}, dir: {:?}, x: {}, y: {}",n, dir, x ,y);
             while count < n {
                 out_vec.push(slice[y-count][x]);
                 count += 1;
