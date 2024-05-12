@@ -1,4 +1,5 @@
 // https://www.codewars.com/kata/52685f7382004e774f0001f7/train/rust
+
 /*
 Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
 
