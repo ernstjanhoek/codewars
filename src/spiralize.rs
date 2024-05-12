@@ -1,4 +1,6 @@
-struct PointData {
+// https://www.codewars.com/kata/534e01fbbb17187c7e0000c6/train/rust/663e6dd7d5a4c1e24bd9f5af
+
+pub struct PointData {
     current: Corner,
     max_x: i8,
     max_y: i8,

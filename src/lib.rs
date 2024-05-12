@@ -12,3 +12,4 @@ pub mod complementary_dna;
 pub mod detect_pangram;
 pub mod teknonymy;
 pub mod greed;
+pub mod readable_time;

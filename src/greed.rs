@@ -1,3 +1,5 @@
+// https://www.codewars.com/kata/5270d0d18625160ada0000e4/train/rust/6640b305eb4723e9c618f3f4
+
 use std::collections::HashMap;
 
 pub fn score(dice: [u8; 5]) -> u32 {

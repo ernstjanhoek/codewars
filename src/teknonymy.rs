@@ -1,3 +1,5 @@
+// https://www.codewars.com/kata/65781071e16df9dcbded1520/train/rust/663f8552444c055ba59438c4
+
 use std::collections::VecDeque;
 
 #[derive(Clone, Debug, Eq, PartialEq, Default)]

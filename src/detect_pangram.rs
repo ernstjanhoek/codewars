@@ -1,3 +1,5 @@
+// https://www.codewars.com/kata/545cedaa9943f7fe7b000048/train/rust/663f7c5f1914adae6d007650
+
 pub fn is_pangram(s: &str) -> bool {
     let mut bitmask: u32 = 0;
     s.chars()
