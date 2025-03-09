@@ -5,7 +5,6 @@ pub struct Node {
 }
 
 impl Node {
-
     pub fn new(value: u32) -> Self {
         Node {value, left: None, right: None}
     }
@@ -19,9 +18,7 @@ impl Node {
         self.right = self.right.or(Some(Box::new(node)));
         self
     }
-}
 
-impl Node {
     fn extract(&self, mut layer: u32) -> Vec<(u32, u32)> {
         let mut out: Vec<(u32, u32)> = Vec::new();
         out.push((self.value, layer));

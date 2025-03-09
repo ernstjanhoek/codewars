@@ -1,4 +1,4 @@
-fn increment_string(s: &str) -> String {
+pub fn increment_string(s: &str) -> String {
     let mut string = s.to_string();
     let mut num_part = String::new();
     for chr in s.chars().rev() {
