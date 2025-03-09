@@ -1,4 +1,4 @@
-fn disemvowel(s: &str) -> String {
+pub fn disemvowel(s: &str) -> String {
     s.chars().filter_map(|value|match value {
         'a'|'e'|'i'|'o'|'u'|'A'|'E'|'I'|'O'|'U' => None,
         _ => Some(value)}).collect()

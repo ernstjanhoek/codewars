@@ -14,3 +14,8 @@ pub mod teknonymy;
 pub mod greed;
 pub mod readable_time;
 pub mod move_zeros;
+pub mod prime_streaming;
+pub mod roman_as_num;
+// pub mod dithering;
+// pub mod temp_maze;
+// pub mod group_parenthesis;

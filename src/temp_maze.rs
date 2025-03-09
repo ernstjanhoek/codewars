@@ -8,11 +8,22 @@ enum Dir {
     E,
 }
 use Dir::*;
+use crate::temp_maze::Value::{Blocked, Open};
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 enum Value {
     Blocked,
     Open,
+}
+
+impl Value {
+    fn from_char(c: char) -> Self {
+        match c {
+            'w' => Blocked,
+            '.' => Open,
+            _ => Open
+        }
+    }
 }
 
 #[derive(Copy, Clone, Debug, PartialEq)]
@@ -21,7 +32,7 @@ struct Point {
     x: usize,
     y: usize,
     side: Option<Dir>,
-    checked: bool, 
+    checked: bool,
 }
 
 
@@ -75,7 +86,7 @@ fn old_path_finder(maze: &str) -> bool {
     for (index, character) in char_vec.iter().enumerate() {
         match character {
             '.' | 'W' => {
-                out.push(Point::new(*character, x, y));
+                out.push(Point::new(Value::from_char(*character), x, y));
                 x += 1;
             },
             '\n' => {
@@ -92,7 +103,7 @@ fn old_path_finder(maze: &str) -> bool {
 
 
     for (index, point) in out.iter().enumerate() {
-        if point.value == 'W' && point.side.is_some() {
+        if point.value == Value::from_char('W') && point.side.is_some() {
 
         }
     }
@@ -123,8 +134,8 @@ mod tests {
             .W.\n\
             ...\
             ",
-            true,
-            );
+                  true,
+        );
 
         test_maze("\
             ......\n\
@@ -134,8 +145,8 @@ mod tests {
             ......\n\
             ......\
             ",
-            true,
-            );
+                  true,
+        );
 
         test_maze("\
             ......\n\
@@ -145,23 +156,17 @@ mod tests {
             .....W\n\
             ....W.\
             ",
-            false,
-            );
+                  false,
+        );
     }
 
     fn test_maze(maze: &str, expect: bool) {
         let actual = path_finder(maze);
 
-        assert!(
-            actual == expect,
-            "Test failed!\n\
+        assert_eq!(actual, expect, "Test failed!\n\
             Got:      {}\n\
              Expected: {}\n\
              Maze was: \n\
-             {}",
-             actual,
-             expect, 
-             maze
-             );
+             {}", actual, expect, maze);
     }
 }

@@ -14,7 +14,6 @@ pub fn move_zeros(arr: &[u8]) -> Vec<u8> {
     vec0
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::move_zeros;
